@@ -1,3 +1,23 @@
 {% extends 'base.html' %}
-
-<p>heeyyy.... we are live</p>
+{% block content %}
+<div class="container">
+    <div class="row my-5">
+        {% for project in projects %}
+        <div class="col-md-4 d-flex">
+            <div class="card mb-3 flex-fill">
+                <a href="{% url 'project' project.id %}">
+                    <img src="{{project.image.url}}" alt="image" class="card-img-top" style="max-width: 500px; max-height:500px">
+                </a>
+                <div class="card-body">
+                    <h3 class="card-title">{{project.title}}</h3>
+                    <div class="d-flex justify-content-between">
+          
+                        <p class="card-subtitle">{{project.pub_date | date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

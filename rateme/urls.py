@@ -6,4 +6,5 @@ from . import views
 
 urlpatterns=[
      url('^$',views.welcome,name = 'welcome'),
+     url(r'^upload/$', views.upload_project, name='upload'),
 ]

@@ -70,3 +70,17 @@ def profile(request, username):
     profile = Profile.objects.get(user = user)
     projects = Project.objects.filter(user = user)
     return render(request, 'profile.html', {'profile': profile, 'projects': projects})
+
+@login_required(login_url = '/accounts/login/')
+def update_profile(request, id):
+    if request.method == 'POST':
+        profile = Profile.objects.get(id = id)
+        form = UpdateProfile(request.POST or None, request.FILES or None, instance = profile)
+        if form.is_valid():
+            edit = form.save(commit=False)
+            edit.save()
+            return redirect('profile', username = request.user)
+    else:
+        form = UpdateProfile()
+
+    return render(request, 'update_profile.html', {'form': form})

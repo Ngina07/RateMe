@@ -6,8 +6,10 @@ from . import views
 
 urlpatterns=[
      url('^$',views.welcome,name = 'welcome'),
+     url(r'^sites/(\d+)$', views.project, name='project'),
      url(r'^upload/$', views.upload_project, name='upload'),
      url(r'^search/$', views.search, name='search_results'),
+     
 ]
 
 if settings.DEBUG:

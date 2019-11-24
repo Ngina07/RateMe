@@ -41,3 +41,25 @@ def search(request):
         return render(request, 'search.html', {'projects': projects, 'message': message})
         
     return render(request, 'search.html')
+
+def project(request, id):
+    if request.user.is_authenticated:
+        user = User.objects.get(username = request.user)
+    project = Project.objects.get(id = id)
+    reviews = Review.objects.filter(project = project)
+    design = reviews.aggregate(Avg('design'))['design__avg']
+    usability = reviews.aggregate(Avg('usability'))['usability__avg']
+    content = reviews.aggregate(Avg('content'))['content__avg']
+    average = reviews.aggregate(Avg('average'))['average__avg']
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.average = (review.design + review.usability + review.content) / 3
+            review.project = project
+            review.user = user
+            review.save()
+        return redirect('project', id)
+    else:
+        form = ReviewForm()
+    return render(request, 'project.html', {'project': project, 'reviews': reviews, 'form': form, 'design': design, 'usability': usability, 'content': content, 'average': average})

@@ -17,3 +17,16 @@ def welcome(request):
     return render(request,"welcome.html",{"projects":projects})
 
 
+@login_required(login_url='/accounts/login/')
+def upload_project(request):
+    if request.method == 'POST':
+        form = UploadProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.user = request.user
+            project.save()
+        return redirect('welcome')
+    else:
+        form = UploadProjectForm()
+
+    return render(request, 'upload.html', {'form': form})

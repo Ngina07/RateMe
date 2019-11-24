@@ -7,4 +7,8 @@ from . import views
 urlpatterns=[
      url('^$',views.welcome,name = 'welcome'),
      url(r'^upload/$', views.upload_project, name='upload'),
+     url(r'^search/$', views.search, name='search_results'),
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

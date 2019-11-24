@@ -31,3 +31,13 @@ def upload_project(request):
         form = UploadProjectForm()
 
     return render(request, 'upload.html', {'form': form})
+
+
+def search(request):
+    if 'site' in request.GET and request.GET['site']:
+        search_term = request.GET.get('site')
+        projects = Project.objects.filter(title__icontains = search_term)
+        message = f'{search_term}'
+        return render(request, 'search.html', {'projects': projects, 'message': message})
+        
+    return render(request, 'search.html')

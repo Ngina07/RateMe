@@ -63,3 +63,10 @@ def project(request, id):
     else:
         form = ReviewForm()
     return render(request, 'project.html', {'project': project, 'reviews': reviews, 'form': form, 'design': design, 'usability': usability, 'content': content, 'average': average})
+
+
+def profile(request, username):
+    user = User.objects.get(username = username)
+    profile = Profile.objects.get(user = user)
+    projects = Project.objects.filter(user = user)
+    return render(request, 'profile.html', {'profile': profile, 'projects': projects})

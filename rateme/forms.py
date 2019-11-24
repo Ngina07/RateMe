@@ -12,3 +12,7 @@ class ReviewForm(forms.ModelForm):
         model = Review
         exclude = ['average','project', 'user']
 
+class UpdateProfile(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']

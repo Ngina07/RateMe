@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rateme',
     'bootstrap3',
     'bootstrap4',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,6 @@ STATICFILES_DIRS = [
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

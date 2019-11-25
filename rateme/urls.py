@@ -9,7 +9,7 @@ urlpatterns=[
      url(r'^sites/(\d+)$', views.project, name='project'),
      url(r'^upload/$', views.upload_project, name='upload'),
      url(r'^search/$', views.search, name='search_results'),
-     url(r'^profile/(?P<username>\w{0,50})/$', views.profile, name='profile'),
+     url(r'^profile/(?P<username>\w+)/$', views.profile, name='profile'),
      url(r'^update_profile/(\d+)$', views.update_profile, name='update_profile'),
      
 ]

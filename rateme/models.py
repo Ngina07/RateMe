@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -15,7 +16,7 @@ class Project(models.Model):
         return self.title
 
 class Profile(models.Model):
-    profile_pic = models.ImageField(upload_to='images/', default='/images/default.jpg')
+    profile_pic = models.ImageField(upload_to='images/', default='/images/default.png')
     bio = models.TextField(blank=True)
     contacts = models.CharField(max_length = 30,blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <div class="card my-5">
-        <img src="{{project.image.url}}" alt="" class="card-img-top">
+        <img src="{{project.image.url}}" alt="" class="card-img-top" style="max-width: 800px; max-height: 800px">
         <div class="card-body">
             <p class="h1 card-title">{{project.title}}</p>
             <p class="h2 card-subtitle my-2">by <a href="{% url 'profile' project.user.username %}">{{project.user.username}}</a></p>
@@ -24,6 +24,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="card">
+                            <h2>Rate on a scale of 1-10</h2>
                             <div class="card-body">
                                 <form enctype="multipart/form-data" method="post">
                                     {% csrf_token %}
@@ -44,6 +45,7 @@
     </div>
     {% if reviews %}
     <ul class="list-group mb-5">
+        Reviewed by : 
     {% for review in reviews %}
         <li class="list-group-item d-flex justify-content-between mb-3">
             <div class="media">
@@ -53,12 +55,7 @@
                     {{review.user.profile.bio}}
                 </div>
             </div>
-            <div class=" w-25 d-flex justify-content-between">
-                <span class="h3">D - {{review.design}}</span>
-                <span class="h3">U - {{review.usability}}</span>
-                <span class="h3">C - {{review.content}}</span>
-                <span class="h3">A - {{review.average}}</span>
-            </div>
+          
         </li>
     {% endfor %}
     </ul>

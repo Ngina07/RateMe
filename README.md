@@ -1,9 +1,9 @@
-## Instagram
-### Instagram is a clone of the actual instagram app.
+## RATE-ME
+### 
 #### By : Phillis Ngina Njoroge
 
 ### Description
-The web-app displays images uploaded by the app admin. Users are able the view the images,search images by catgory and copy photo links.Access live link [here]https://rateme101.herokuapp.com/)
+The web-app displays projects uploaded by the users. Users are able the view the prpojects,search by projectnames and rate the projects.Access live link [here]https://rateme101.herokuapp.com/)
 
 ## BDD
 
@@ -30,6 +30,10 @@ The web-app displays images uploaded by the app admin. Users are able the view t
 > run tests using the command ---> python manage.py test
 
 > Access your application through the local     server link e.g. http://127.0.0.1:8000
+
+## API end points
+* [Profiles API]https://rateme101.herokuapp.com/profiles/
+* [Projects API]https://rateme101.herokuapp.com/projects/
 
 
 ## Known bugs

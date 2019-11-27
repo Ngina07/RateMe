@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile,Project,Review
 from .forms import UploadProjectForm,ReviewForm,UpdateProfile
 from django.db.models import Avg
+from .serializers import ProfileSerializer,ProjectSerializer
+from rest_framework import viewsets
 
 
 
@@ -84,3 +86,12 @@ def update_profile(request, id):
         form = UpdateProfile()
 
     return render(request, 'update_profile.html', {'form': form})
+
+
+class ProfileViewset(viewsets.ModelViewSet):
+    queryset = Profile.objects.all().order_by('-date_joined')
+    serializer_class = ProfileSerializer
+
+class ProjectViewset(viewsets.ModelViewSet):
+    queryset = Project.object.all()
+    serializer_class = ProjectSerializer

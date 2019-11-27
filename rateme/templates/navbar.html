@@ -35,17 +35,23 @@
                 <ul>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
-                            aria-expanded="false">Menu
+                            aria-expanded="false" style="margin-top: 10px">Menu
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             
                             <li class="nav-item">
-                                <a href="{%url 'profile' user.username %}" class="nav-link">MYProfile</a>
+                                <a href="{%url 'profile' user.username %}" class="nav-link">MyProfile</a>
                             </li>
                             
                             <li>
                                 <a href="{%url 'upload' %}">Post project</a>
+                            </li>
+                            <li>
+                                <a href="/projects">Projects API</a>
+                            </li>
+                            <li>
+                                <a href="/profiles">Profiles API</a>
                             </li>
                             <li>
                                 <a href="/accounts/password/change">Change Password</a>

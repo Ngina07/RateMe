@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from django.contrib.auth import views
+from rateme.views import ProjectViewset, ProfileViewset
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'profiles', ProfileViewset)
+router.register(r'projects', ProjectViewset)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,4 +29,6 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^logout/$', views.logout, {'next_page': '/'}),
+    url(r'',include(router.urls)),
+    url(r'api-auth/',include('rest_framework.urls', namespace='rest_framework')),
 ]

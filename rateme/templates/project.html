@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <div class="card my-5">
-        <img src="{{project.image.url}}" alt="" class="card-img-top" style="max-width: 800px; max-height: 800px">
+        <img src="{{project.image.url}}" alt="" class="card-img-top" style="max-width: 500px; max-height: 500px">
         <div class="card-body">
             <p class="h1 card-title">{{project.title}}</p>
             <p class="h2 card-subtitle my-2">by <a href="{% url 'profile' project.user.username %}">{{project.user.username}}</a></p>

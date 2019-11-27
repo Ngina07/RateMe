@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load bootstrap3 %}
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <div class="card my-4">
-                <img src="{{profile.profile_pic.url}}" alt="PleaseUpdateProfile" class="card-img-top">
+            <div class="card md-4">
+                    <img src="{{profile.profile_pic.url}}" alt="PleaseUpdateProfile" class="circle-img img-circle" style="max-width: 230px">
                 <div class="card-body">
                     <h2 class="card-title">{{profile.user}}</h2>
                     <p>{{profile.bio}}</p>

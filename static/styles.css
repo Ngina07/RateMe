@@ -1,0 +1,19 @@
+img { 
+	max-width: 100%;
+	}
+img.thumbnail { 
+    width: 350px;
+    height: 350px;
+    background: #2978A0;
+    border-color: black;
+    margin: 40px;
+    padding-top: 10px;
+
+    }
+
+img.gallery{
+    width: 500px;
+    height: 500px;
+    background: #2978A0;
+    border-color: black;  
+}

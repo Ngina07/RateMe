@@ -3,7 +3,7 @@
 #### By : Phillis Ngina Njoroge
 
 ### Description
-The web-app displays projects uploaded by the users. Users are able the view the prpojects,search by projectnames and rate the projects.Access live link [here]https://rateme101.herokuapp.com/)
+The web-app displays projects uploaded by the users. Users are able the view the prpojects,search by projectnames and rate the projects.Access live link [here](https://rateme101.herokuapp.com/)
 
 ## BDD
 
@@ -32,8 +32,8 @@ The web-app displays projects uploaded by the users. Users are able the view the
 > Access your application through the local     server link e.g. http://127.0.0.1:8000
 
 ## API end points
-* [Profiles API]https://rateme101.herokuapp.com/profiles/
-* [Projects API]https://rateme101.herokuapp.com/projects/
+* [Profiles API](https://rateme101.herokuapp.com/profiles/)
+* [Projects API](https://rateme101.herokuapp.com/projects/)
 
 
 ## Known bugs
